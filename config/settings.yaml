@@ -1,0 +1,55 @@
+trading:
+  initial_capital: 10.0
+  max_position_size: 0.3
+  min_momentum_threshold: 0.09
+  max_momentum_threshold: 0.13
+  breakout_window_seconds: 60
+  entry_timeout_seconds: 30
+  momentum_decay_threshold: -0.005
+  slippage_tolerance: 0.03
+  gas_price_multiplier: 1.2
+
+scanning:
+  tokens_per_day_target: 10000
+  scan_interval_ms: 100
+  batch_size: 50
+  networks:
+    - arbitrum
+    - optimism
+    - polygon
+    - base
+  dexes:
+    - uniswap_v3
+    - camelot
+    - pancakeswap
+    - sushiswap
+    - balancer
+
+ml_model:
+  model_type: transformer
+  sequence_length: 60
+  features: 12
+  hidden_dim: 128
+  num_heads: 8
+  num_layers: 4
+  dropout: 0.1
+  learning_rate: 0.001
+  batch_size: 32
+  retrain_threshold: 100
+
+risk_management:
+  max_daily_trades: 50
+  max_concurrent_positions: 5
+  blacklist_duration_hours: 24
+  honeypot_check_enabled: true
+  rug_detection_enabled: true
+  min_liquidity_usd: 1000
+  max_price_impact: 0.05
+
+optimization:
+  parameter_adjustment_frequency: 100
+  confidence_decay_rate: 0.95
+  entropy_weight: 0.3
+  momentum_weight: 0.4
+  volume_weight: 0.3
+  adaptive_thresholds: true
